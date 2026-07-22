@@ -13,3 +13,4 @@ photo-story-*.png
 runtime-error-current.png
 desktop-border-*.png
 contrast-*.png
+.playwright-cli/

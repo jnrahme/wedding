@@ -27,14 +27,14 @@ export function RSVP({ openExternalRsvp, compact = false }: RSVPProps) {
   if (compact) {
     return (
       <div className="w-full text-center">
-        <h2 className="font-display text-5xl text-ivory">RSVP</h2>
-        <p className="mt-5 text-lg leading-8 text-ivory/76">
+        <h2 className="invitation-copy font-display text-5xl">RSVP</h2>
+        <p className="invitation-copy-soft mt-5 text-lg leading-8">
           Please respond using the external RSVP link, or use the built-in form below when a backend is connected.
         </p>
         <button
           type="button"
           onClick={openExternalRsvp}
-          className="mt-7 inline-flex items-center justify-center gap-2 rounded-full bg-gold px-8 py-4 text-sm font-semibold uppercase tracking-[0.22em] text-ink"
+          className="mt-7 inline-flex items-center justify-center gap-2 rounded-full border border-gold/60 bg-white/44 px-8 py-4 text-sm font-semibold uppercase tracking-[0.22em] text-gold"
         >
           RSVP
           <ExternalLink size={17} aria-hidden="true" />

@@ -27,9 +27,9 @@ export function OpeningScreen({ onOpen }: OpeningScreenProps) {
           sizes="(max-width: 640px) 100vw, 430px"
           className="object-cover opacity-72"
         />
-        <div className="absolute inset-0 bg-black/54" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/24 via-black/48 to-black/78" />
-        <div className="absolute inset-x-10 top-1/4 h-1/2 rounded-full bg-black/34 blur-3xl" />
+        <div className="absolute inset-0 bg-white/34" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/28 via-white/44 to-white/62" />
+        <div className="absolute inset-x-10 top-1/4 h-1/2 rounded-full bg-white/46 blur-3xl" />
         <motion.div
           className="relative z-10 mx-auto flex h-full max-w-sm flex-col items-center justify-center px-6"
           initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
@@ -44,7 +44,7 @@ export function OpeningScreen({ onOpen }: OpeningScreenProps) {
           <button
             type="button"
             onClick={onOpen}
-            className="invitation-copy mt-12 flex size-36 items-center justify-center rounded-full border-2 border-ivory/90 bg-black/42 px-7 py-4 font-display text-3xl italic backdrop-blur-md transition hover:bg-black/56 focus:outline-none focus:ring-4 focus:ring-ivory/30"
+            className="invitation-copy mt-12 flex size-36 items-center justify-center rounded-full border-2 border-gold/80 bg-white/42 px-7 py-4 font-display text-3xl italic backdrop-blur-md transition hover:bg-white/56 focus:outline-none focus:ring-4 focus:ring-gold/30"
           >
             Start
             <span className="sr-only"> Open Invitation</span>

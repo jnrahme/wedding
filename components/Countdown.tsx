@@ -55,11 +55,11 @@ export function Countdown({ compact = false }: CountdownProps) {
   if (compact) {
     return (
       <div className="w-full text-center">
-        <h2 className="font-display text-5xl text-ivory">Until {wedding.date.display}</h2>
+        <h2 className="invitation-copy font-display text-5xl">Until {wedding.date.display}</h2>
         <div className="mt-8 grid grid-cols-2 gap-3">
           {units.map(([label, value]) => (
-            <div key={label} className="rounded-md border border-gold/30 bg-ink/35 p-4">
-              <p className="font-display text-4xl text-ivory">{isMounted ? String(value).padStart(2, '0') : '--'}</p>
+            <div key={label} className="rounded-md border border-gold/30 bg-white/42 p-4">
+              <p className="font-display text-4xl text-gold">{isMounted ? String(value).padStart(2, '0') : '--'}</p>
               <p className="mt-1 text-[0.65rem] uppercase tracking-[0.2em] text-champagne/76">{label}</p>
             </div>
           ))}

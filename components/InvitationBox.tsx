@@ -60,7 +60,7 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
             <p className="invitation-copy mt-7 font-display text-3xl italic leading-10">
               When 8·8·8 found us, two paths became one.
             </p>
-            <p className="mt-5 text-sm uppercase tracking-[0.24em] text-champagne/85">Infinite Love</p>
+            <p className="invitation-copy-soft mt-5 text-sm uppercase tracking-[0.24em]">Infinite Love</p>
           </div>
         ),
       },
@@ -101,13 +101,13 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
         content: (
           <div className="text-center">
             <Shirt className="mx-auto mb-5 text-gold" size={34} aria-hidden="true" />
-            <h2 className="font-display text-5xl text-ivory">{wedding.details.dressCode}</h2>
-            <p className="mt-6 text-lg leading-8 text-ivory/84">{wedding.details.adultsOnly}</p>
+            <h2 className="invitation-copy font-display text-5xl">{wedding.details.dressCode}</h2>
+            <p className="invitation-copy-soft mt-6 text-lg leading-8">{wedding.details.adultsOnly}</p>
             <div className="mt-8 grid gap-3">
               {wedding.schedule.map((item) => (
-                <div key={`${item.time}-${item.label}`} className="rounded-md border border-gold/30 bg-ink/30 px-4 py-3">
+                <div key={`${item.time}-${item.label}`} className="rounded-md border border-gold/30 bg-white/42 px-4 py-3">
                   <p className="text-xs uppercase tracking-[0.24em] text-gold">{item.time}</p>
-                  <p className="mt-1 text-ivory">{item.label}</p>
+                  <p className="mt-1 text-champagne">{item.label}</p>
                 </div>
               ))}
             </div>
@@ -133,13 +133,13 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
         content: (
           <div className="text-center">
             <Plane className="mx-auto mb-5 text-gold" size={34} aria-hidden="true" />
-            <h2 className="font-display text-5xl text-ivory">Batroun, Lebanon</h2>
-            <p className="mt-6 text-lg leading-8 text-ivory/82">{wedding.travel.body}</p>
+            <h2 className="invitation-copy font-display text-5xl">Batroun, Lebanon</h2>
+            <p className="invitation-copy-soft mt-6 text-lg leading-8">{wedding.travel.body}</p>
             <a
               href={wedding.travelUrl}
               target="_blank"
               rel="noreferrer"
-              className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-gold px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-ink"
+              className="mt-8 inline-flex items-center justify-center gap-2 rounded-full border border-gold/60 bg-white/44 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-gold"
             >
               Travel & Accommodation
               <ExternalLink size={15} aria-hidden="true" />
@@ -154,12 +154,12 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
         content: (
           <div>
             <HelpCircle className="mx-auto mb-5 text-gold" size={34} aria-hidden="true" />
-            <h2 className="text-center font-display text-5xl text-ivory">FAQ</h2>
+            <h2 className="invitation-copy text-center font-display text-5xl">FAQ</h2>
             <div className="mt-7 space-y-4 text-left">
               {wedding.faq.map((item) => (
-                <div key={item.question} className="rounded-md border border-gold/24 bg-ink/35 p-4">
+                <div key={item.question} className="rounded-md border border-gold/24 bg-white/42 p-4">
                   <h3 className="font-semibold text-champagne">{item.question}</h3>
-                  <p className="mt-2 text-sm leading-6 text-ivory/76">{item.answer}</p>
+                  <p className="mt-2 text-sm leading-6 text-champagne/80">{item.answer}</p>
                 </div>
               ))}
             </div>
@@ -207,9 +207,9 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
                 priority={index < 2}
                 className="object-cover opacity-72"
               />
-              <div className="absolute inset-0 bg-black/62" />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/34 via-black/50 to-black/82" />
-              <div className="absolute inset-x-8 top-[28%] h-[42%] rounded-full bg-black/38 blur-3xl" />
+              <div className="absolute inset-0 bg-white/34" />
+              <div className="absolute inset-0 bg-gradient-to-b from-white/28 via-white/44 to-white/66" />
+              <div className="absolute inset-x-8 top-[28%] h-[42%] rounded-full bg-white/48 blur-3xl" />
               <div className="relative z-10 flex h-full flex-col px-7 pb-20 pt-16">
                 {slide.eyebrow ? (
                   <p className="invitation-copy-soft text-center font-display text-2xl">{slide.eyebrow}</p>
@@ -255,13 +255,13 @@ function EventCard({ icon, title, time, location, note, mapUrl }: EventCardProps
   return (
     <div className="text-center">
       <div className="mb-5 flex justify-center">{icon}</div>
-      <h2 className="font-display text-5xl leading-none text-ivory">{title}</h2>
+      <h2 className="invitation-copy font-display text-5xl leading-none">{title}</h2>
       <p className="mt-5 text-lg text-champagne">{time}</p>
-      <p className="mt-2 flex items-center justify-center gap-2 text-ivory/82">
+      <p className="mt-2 flex items-center justify-center gap-2 text-champagne/82">
         <MapPin size={17} aria-hidden="true" />
         {location}
       </p>
-      <p className="mt-6 text-base leading-7 text-ivory/76">{note}</p>
+      <p className="mt-6 text-base leading-7 text-champagne/80">{note}</p>
       <a
         href={mapUrl}
         target="_blank"

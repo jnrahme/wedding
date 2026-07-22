@@ -22,9 +22,9 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background:
-    radial-gradient(circle at 20% 0%, rgba(198, 161, 91, 0.16), transparent 32rem),
+    radial-gradient(circle at 20% 0%, rgba(26, 26, 26, 0.16), transparent 32rem),
     linear-gradient(135deg, #080807 0%, #0f201c 48%, #080807 100%);
-  color: #f7f1e6;
+  color: #1a1a1a;
   font-family: var(--font-body), system-ui, sans-serif;
 }
 
@@ -37,40 +37,37 @@ textarea {
 }
 
 ::selection {
-  background: rgba(198, 161, 91, 0.42);
-  color: #fff8ea;
+  background: rgba(26, 26, 26, 0.3);
+  color: #1a1a1a;
 }
 
 .fine-border {
-  border: 1px solid rgba(198, 161, 91, 0.36);
+  border: 1px solid rgba(26, 26, 26, 0.36);
 }
 
 .gold-text {
-  background: linear-gradient(120deg, #f1d99d, #b58c3b, #fbf1c9);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: #1a1a1a;
 }
 
 .invitation-copy {
-  color: #fffaf0;
+  color: #1a1a1a;
   text-shadow:
-    0 2px 3px rgba(0, 0, 0, 0.85),
-    0 12px 28px rgba(0, 0, 0, 0.65);
+    0 1px 2px rgba(255, 255, 255, 0.92),
+    0 10px 26px rgba(255, 255, 255, 0.72);
 }
 
 .invitation-copy-soft {
-  color: #fff5dc;
+  color: #2c2c2c;
   text-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.9),
-    0 8px 20px rgba(0, 0, 0, 0.7);
+    0 1px 2px rgba(255, 255, 255, 0.92),
+    0 8px 20px rgba(255, 255, 255, 0.72);
 }
 
 .glass-panel {
   background:
-    linear-gradient(135deg, rgba(247, 241, 230, 0.09), rgba(247, 241, 230, 0.02)),
-    rgba(8, 8, 7, 0.54);
-  border: 1px solid rgba(198, 161, 91, 0.28);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04)),
+    rgba(255, 255, 255, 0.38);
+  border: 1px solid rgba(26, 26, 26, 0.28);
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
   backdrop-filter: blur(18px);
 }
@@ -91,22 +88,22 @@ textarea {
   content: '';
   height: 1px;
   flex: 1;
-  background: linear-gradient(90deg, transparent, rgba(198, 161, 91, 0.72), transparent);
+  background: linear-gradient(90deg, transparent, rgba(26, 26, 26, 0.72), transparent);
 }
 
 .field {
   width: 100%;
-  border: 1px solid rgba(198, 161, 91, 0.32);
-  background: rgba(247, 241, 230, 0.08);
-  color: #fff8ea;
+  border: 1px solid rgba(26, 26, 26, 0.32);
+  background: rgba(255, 255, 255, 0.5);
+  color: #1a1a1a;
   outline: none;
   border-radius: 0.5rem;
   padding: 0.85rem 1rem;
 }
 
 .field:focus {
-  border-color: rgba(234, 216, 183, 0.88);
-  box-shadow: 0 0 0 3px rgba(198, 161, 91, 0.16);
+  border-color: rgba(44, 44, 44, 0.88);
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.16);
 }
 
 @media (prefers-reduced-motion: reduce) {
