@@ -44,7 +44,14 @@ jobs:
           chmod 700 ~/.ssh
           printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-          ssh-keyscan -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts
+          for attempt in 1 2 3 4 5; do
+            if ssh-keyscan -T 20 -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts; then
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "Unable to scan SSH host key for $DEPLOY_HOST" >&2
+          exit 1
 
       - name: Publish to VPS
         env:
