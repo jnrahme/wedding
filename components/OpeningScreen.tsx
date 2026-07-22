@@ -25,10 +25,10 @@ export function OpeningScreen({ onOpen }: OpeningScreenProps) {
           fill
           priority
           sizes="(max-width: 640px) 100vw, 430px"
-          className="object-cover opacity-80"
+          className="object-cover opacity-70"
         />
-        <div className="absolute inset-0 bg-black/52" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/24 via-black/44 to-black/80" />
+        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/90" />
         <motion.div
           className="relative z-10 mx-auto flex h-full max-w-sm flex-col items-center justify-center px-6"
           initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}

@@ -153,7 +153,7 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
         eyebrow: 'Questions',
         content: (
           <div>
-            <HelpCircle className="mx-auto mb-5 text-gold" size={34} aria-hidden="true" />
+            <HelpCircle className="mx-auto mb-7 mt-3 text-gold" size={52} strokeWidth={1.8} aria-hidden="true" />
             <h2 className="invitation-copy text-center font-display text-5xl">FAQ</h2>
             <div className="mt-7 space-y-4 text-left">
               {wedding.faq.map((item) => (
@@ -205,10 +205,10 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
                 fill
                 sizes="(max-width: 640px) 100vw, 430px"
                 priority={index < 2}
-                className="object-cover opacity-80"
+                className="object-cover opacity-70"
               />
-              <div className="absolute inset-0 bg-black/52" />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/24 via-black/44 to-black/80" />
+              <div className="absolute inset-0 bg-black/70" />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/90" />
               <div className="relative z-10 flex h-full flex-col px-7 pb-20 pt-16">
                 {slide.eyebrow ? (
                   <p className="invitation-copy-soft text-center font-display text-2xl">{slide.eyebrow}</p>

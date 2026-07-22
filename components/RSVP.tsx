@@ -34,7 +34,7 @@ export function RSVP({ openExternalRsvp, compact = false }: RSVPProps) {
         <button
           type="button"
           onClick={openExternalRsvp}
-          className="mt-10 inline-flex min-w-48 items-center justify-center gap-3 rounded-full border border-gold/80 bg-black/35 px-9 py-4 text-sm font-semibold uppercase tracking-[0.28em] text-gold backdrop-blur-sm transition hover:bg-black/50 focus:outline-none focus:ring-4 focus:ring-gold/30"
+          className="mt-10 inline-flex min-w-48 items-center justify-center gap-3 rounded-full border border-gold/80 bg-black/50 px-9 py-4 text-sm font-semibold uppercase tracking-[0.28em] text-gold backdrop-blur-sm transition hover:bg-black/60 focus:outline-none focus:ring-4 focus:ring-gold/30"
         >
           RSVP
           <ExternalLink size={17} aria-hidden="true" />
