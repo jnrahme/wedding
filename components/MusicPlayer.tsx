@@ -16,7 +16,7 @@ export function MusicPlayer({ enabled, compact = false }: MusicPlayerProps) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
-  const [volume, setVolume] = useState(0.42);
+  const [volume, setVolume] = useState(0.72);
   const [hasAudioError, setHasAudioError] = useState(false);
 
   useEffect(() => {
@@ -85,7 +85,7 @@ export function MusicPlayer({ enabled, compact = false }: MusicPlayerProps) {
         <audio
           ref={audioRef}
           src={wedding.musicFileUrl}
-          preload="none"
+          preload="auto"
           loop
           onError={() => setHasAudioError(true)}
           aria-label="Background music"

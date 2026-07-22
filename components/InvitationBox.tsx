@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useRef, useState, type PointerEvent, type ReactNode, type TouchEvent } from 'react';
+import { useEffect, useMemo, useRef, useState, type PointerEvent, type ReactNode } from 'react';
 import {
   ArrowLeft,
   CalendarDays,
@@ -36,6 +36,7 @@ type SwipePoint = {
 export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
   const scrollerRef = useRef<HTMLDivElement | null>(null);
   const swipeStartRef = useRef<SwipePoint | null>(null);
+  const activeSlideRef = useRef(0);
   const [activeSlide, setActiveSlide] = useState(0);
 
   const slides = useMemo<Slide[]>(
@@ -214,6 +215,76 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
     [openExternalRsvp],
   );
 
+  useEffect(() => {
+    activeSlideRef.current = activeSlide;
+  }, [activeSlide]);
+
+  useEffect(() => {
+    let lastTouchPoint: SwipePoint | null = null;
+
+    function handleDocumentTouchStart(event: globalThis.TouchEvent) {
+      const touch = event.touches[0];
+      if (!touch) {
+        return;
+      }
+
+      startSwipe({ x: touch.clientX, y: touch.clientY });
+      lastTouchPoint = { x: touch.clientX, y: touch.clientY };
+    }
+
+    function handleDocumentTouchMove(event: globalThis.TouchEvent) {
+      const touch = event.touches[0];
+      const swipeStart = swipeStartRef.current;
+      if (!touch || !swipeStart) {
+        return;
+      }
+
+      lastTouchPoint = { x: touch.clientX, y: touch.clientY };
+
+      const deltaX = touch.clientX - swipeStart.x;
+      const deltaY = touch.clientY - swipeStart.y;
+      const isHorizontalIntent = Math.abs(deltaX) > 12 && Math.abs(deltaX) > Math.abs(deltaY) * 1.2;
+
+      if (isHorizontalIntent) {
+        event.preventDefault();
+      }
+    }
+
+    function handleDocumentTouchEnd(event: globalThis.TouchEvent) {
+      const touch = event.changedTouches[0];
+      const point = touch ? { x: touch.clientX, y: touch.clientY } : lastTouchPoint;
+      lastTouchPoint = null;
+
+      if (!point) {
+        swipeStartRef.current = null;
+        return;
+      }
+
+      const didSwipe = finishSwipe(point);
+      if (didSwipe) {
+        event.preventDefault();
+      }
+    }
+
+    function handleDocumentTouchCancel() {
+      lastTouchPoint = null;
+      swipeStartRef.current = null;
+      goToSlide(activeSlideRef.current);
+    }
+
+    document.addEventListener('touchstart', handleDocumentTouchStart, { capture: true, passive: true });
+    document.addEventListener('touchmove', handleDocumentTouchMove, { capture: true, passive: false });
+    document.addEventListener('touchend', handleDocumentTouchEnd, { capture: true, passive: false });
+    document.addEventListener('touchcancel', handleDocumentTouchCancel, { capture: true, passive: true });
+
+    return () => {
+      document.removeEventListener('touchstart', handleDocumentTouchStart, { capture: true });
+      document.removeEventListener('touchmove', handleDocumentTouchMove, { capture: true });
+      document.removeEventListener('touchend', handleDocumentTouchEnd, { capture: true });
+      document.removeEventListener('touchcancel', handleDocumentTouchCancel, { capture: true });
+    };
+  });
+
   function goToSlide(index: number) {
     const nextIndex = Math.max(0, Math.min(slides.length - 1, index));
     const scroller = scrollerRef.current;
@@ -221,6 +292,7 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
       return;
     }
     scroller.scrollTo({ left: scroller.clientWidth * nextIndex, behavior: 'smooth' });
+    activeSlideRef.current = nextIndex;
     setActiveSlide(nextIndex);
   }
 
@@ -229,7 +301,9 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
     if (!scroller) {
       return;
     }
-    setActiveSlide(Math.round(scroller.scrollLeft / scroller.clientWidth));
+    const nextIndex = Math.round(scroller.scrollLeft / scroller.clientWidth);
+    activeSlideRef.current = nextIndex;
+    setActiveSlide(nextIndex);
   }
 
   function startSwipe(point: SwipePoint) {
@@ -253,7 +327,7 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
       return false;
     }
 
-    goToSlide(activeSlide + (deltaX < 0 ? 1 : -1));
+    goToSlide(activeSlideRef.current + (deltaX < 0 ? 1 : -1));
     return true;
   }
 
@@ -274,27 +348,6 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
     finishSwipe({ x: event.clientX, y: event.clientY });
   }
 
-  function handleTouchStart(event: TouchEvent<HTMLElement>) {
-    const touch = event.touches[0];
-    if (!touch) {
-      return;
-    }
-
-    startSwipe({ x: touch.clientX, y: touch.clientY });
-  }
-
-  function handleTouchEnd(event: TouchEvent<HTMLElement>) {
-    const touch = event.changedTouches[0];
-    if (!touch) {
-      return;
-    }
-
-    const didSwipe = finishSwipe({ x: touch.clientX, y: touch.clientY });
-    if (didSwipe) {
-      event.preventDefault();
-    }
-  }
-
   return (
     <section
       className="flex min-h-dvh touch-pan-y items-center justify-center bg-black p-3 sm:p-8"
@@ -302,13 +355,7 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
       onPointerUp={handlePointerUp}
       onPointerCancel={() => {
         swipeStartRef.current = null;
-        goToSlide(activeSlide);
-      }}
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
-      onTouchCancel={() => {
-        swipeStartRef.current = null;
-        goToSlide(activeSlide);
+        goToSlide(activeSlideRef.current);
       }}
     >
       <div className="relative h-[calc(100dvh-1.5rem)] w-full max-w-[430px] overflow-hidden rounded-[4px] border-[6px] border-ivory bg-ink shadow-2xl sm:h-[min(92vh,860px)]">
