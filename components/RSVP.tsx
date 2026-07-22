@@ -27,7 +27,7 @@ export function RSVP({ openExternalRsvp, compact = false }: RSVPProps) {
   if (compact) {
     return (
       <div className="w-full text-center">
-        <h2 className="invitation-copy font-script text-[5.4rem] leading-none">RSVP</h2>
+        <h2 className="invitation-copy font-script text-[4.8rem] leading-none">RSVP</h2>
         <p className="invitation-copy mt-8 font-display text-2xl leading-8">
           Kindly reply through our wedding RSVP page.
         </p>

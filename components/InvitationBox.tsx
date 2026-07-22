@@ -8,7 +8,6 @@ import {
   Church,
   ExternalLink,
   GlassWater,
-  HelpCircle,
   MapPin,
   Plane,
   Shirt,
@@ -150,16 +149,21 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
       {
         id: 'faq',
         image: wedding.images.story[0],
-        eyebrow: 'Questions',
+        eyebrow: '',
         content: (
-          <div>
-            <HelpCircle className="mx-auto mb-7 mt-3 text-gold" size={52} strokeWidth={1.8} aria-hidden="true" />
+          <div className="w-full text-center">
+            <div
+              className="mx-auto mb-3 flex size-12 items-center justify-center rounded-full border-2 border-ivory text-3xl leading-none text-ivory shadow-[0_2px_8px_rgba(0,0,0,0.75)]"
+              aria-hidden="true"
+            >
+              <span className="-mt-1 font-serif">?</span>
+            </div>
             <h2 className="invitation-copy text-center font-display text-5xl">FAQ</h2>
-            <div className="mt-7 space-y-4 text-left">
+            <div className="mt-5 space-y-3 text-left">
               {wedding.faq.map((item) => (
-                <div key={item.question} className="rounded-md border border-gold/25 bg-black/40 p-4">
-                  <h3 className="font-semibold text-champagne">{item.question}</h3>
-                  <p className="mt-2 text-sm leading-6 text-champagne/80">{item.answer}</p>
+                <div key={item.question} className="rounded-md border border-gold/25 bg-black/50 p-3">
+                  <h3 className="text-sm font-semibold text-champagne">{item.question}</h3>
+                  <p className="mt-1 text-xs leading-5 text-champagne/80">{item.answer}</p>
                 </div>
               ))}
             </div>
