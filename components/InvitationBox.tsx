@@ -37,17 +37,15 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
       {
         id: 'names',
         image: wedding.images.story[0],
-        eyebrow: 'Are getting married',
+        eyebrow: '',
         content: (
           <div className="text-center">
-            <h1 className="font-display text-[4.25rem] font-medium italic leading-[0.9] text-ivory">
+            <h1 className="invitation-copy font-display text-[4.25rem] font-medium italic leading-[0.9]">
               Joey
-              <span className="block text-[0.72em] italic text-ivory">&</span>
+              <span className="block text-[0.72em] italic">&</span>
               Ana
             </h1>
-            <p className="mt-8 font-display text-2xl leading-8 text-ivory">
-              Together with our families, we invite you to celebrate the beginning of our forever.
-            </p>
+            <p className="invitation-copy mt-8 font-display text-2xl">Are getting married</p>
           </div>
         ),
       },
@@ -58,8 +56,8 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
         content: (
           <div className="text-center">
             <CalendarDays className="mx-auto mb-5 text-gold" size={34} aria-hidden="true" />
-            <h2 className="font-display text-6xl leading-none text-ivory">{wedding.date.display}</h2>
-            <p className="mt-7 font-display text-3xl italic leading-10 text-ivory">
+            <h2 className="invitation-copy font-display text-6xl leading-none">{wedding.date.display}</h2>
+            <p className="invitation-copy mt-7 font-display text-3xl italic leading-10">
               When 8·8·8 found us, two paths became one.
             </p>
             <p className="mt-5 text-sm uppercase tracking-[0.24em] text-champagne/85">Infinite Love</p>
@@ -209,13 +207,16 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
                 priority={index < 2}
                 className="object-cover opacity-72"
               />
-              <div className="absolute inset-0 bg-black/42" />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/18 via-black/32 to-black/70" />
+              <div className="absolute inset-0 bg-black/62" />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/34 via-black/50 to-black/82" />
+              <div className="absolute inset-x-8 top-[28%] h-[42%] rounded-full bg-black/38 blur-3xl" />
               <div className="relative z-10 flex h-full flex-col px-7 pb-20 pt-16">
-                <p className="text-center font-display text-2xl text-ivory">{slide.eyebrow}</p>
+                {slide.eyebrow ? (
+                  <p className="invitation-copy-soft text-center font-display text-2xl">{slide.eyebrow}</p>
+                ) : null}
                 <div className="flex flex-1 items-center justify-center overflow-y-auto py-8">{slide.content}</div>
                 {index < slides.length - 1 ? (
-                  <div className="absolute bottom-7 left-1/2 flex -translate-x-1/2 flex-col items-center text-ivory/92">
+                  <div className="invitation-copy absolute bottom-7 left-1/2 flex -translate-x-1/2 flex-col items-center">
                     <span className="font-display text-2xl italic">Swipe Left</span>
                     <ArrowLeft className="mt-2" size={34} aria-hidden="true" />
                   </div>

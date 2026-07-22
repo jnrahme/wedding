@@ -113,7 +113,7 @@ export function MusicPlayer({ enabled, compact = false }: MusicPlayerProps) {
           onClick={() => setIsMuted((value) => !value)}
           disabled={!wedding.musicFileUrl || hasAudioError}
           className={`size-9 items-center justify-center rounded-full text-champagne transition hover:bg-ivory/10 focus:outline-none focus:ring-4 focus:ring-gold/20 disabled:cursor-not-allowed disabled:opacity-50 ${
-            compact ? 'hidden sm:flex' : 'flex'
+            compact ? 'hidden' : 'flex'
           }`}
           aria-label={isMuted ? 'Unmute music' : 'Mute music'}
           title={isMuted ? 'Unmute music' : 'Mute music'}
@@ -133,7 +133,7 @@ export function MusicPlayer({ enabled, compact = false }: MusicPlayerProps) {
           value={volume}
           onChange={(event) => setVolume(Number(event.target.value))}
           disabled={!wedding.musicFileUrl || hasAudioError}
-          className={`h-1 accent-gold disabled:opacity-50 ${compact ? 'hidden w-16 sm:block' : 'w-20'}`}
+          className={`h-1 accent-gold disabled:opacity-50 ${compact ? 'hidden w-16' : 'w-20'}`}
         />
       </div>
     </div>
