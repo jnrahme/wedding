@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Cormorant_Garamond, Inter } from 'next/font/google';
+import { Cormorant_Garamond, Great_Vibes, Inter } from 'next/font/google';
 import './globals.css';
 import { wedding } from '@/config/wedding';
 
@@ -12,6 +12,13 @@ const display = Cormorant_Garamond({
 const body = Inter({
   subsets: ['latin'],
   variable: '--font-body',
+  display: 'swap',
+});
+
+const script = Great_Vibes({
+  subsets: ['latin'],
+  variable: '--font-script',
+  weight: '400',
   display: 'swap',
 });
 
@@ -56,7 +63,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable}`}>
+    <html lang="en" className={`${display.variable} ${body.variable} ${script.variable}`}>
       <body>{children}</body>
     </html>
   );

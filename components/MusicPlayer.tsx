@@ -96,7 +96,7 @@ export function MusicPlayer({ enabled, compact = false }: MusicPlayerProps) {
           type="button"
           onClick={togglePlay}
           disabled={!wedding.musicFileUrl || hasAudioError}
-          className="flex size-10 items-center justify-center rounded-full bg-white/30 text-gold transition hover:bg-white/50 focus:outline-none focus:ring-4 focus:ring-gold/30 disabled:cursor-not-allowed disabled:opacity-50"
+          className="flex size-10 items-center justify-center rounded-full bg-black/30 text-gold transition hover:bg-black/50 focus:outline-none focus:ring-4 focus:ring-gold/30 disabled:cursor-not-allowed disabled:opacity-50"
           aria-label={label}
           title={hasAudioError ? 'Music file unavailable' : label}
         >

@@ -25,31 +25,32 @@ export function OpeningScreen({ onOpen }: OpeningScreenProps) {
           fill
           priority
           sizes="(max-width: 640px) 100vw, 430px"
-          className="object-cover opacity-72"
+          className="object-cover opacity-70"
         />
-        <div className="absolute inset-0 bg-white/34" />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/28 via-white/44 to-white/62" />
-        <div className="absolute inset-x-10 top-1/4 h-1/2 rounded-full bg-white/46 blur-3xl" />
+        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/55 to-black/90" />
         <motion.div
           className="relative z-10 mx-auto flex h-full max-w-sm flex-col items-center justify-center px-6"
           initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="invitation-copy-soft mb-8 text-xs uppercase tracking-[0.42em]">Wedding Invitation</p>
-          <h1 className="invitation-copy font-display text-6xl font-medium italic leading-tight">
-            {wedding.couple.monogram}
+          <p className="invitation-copy-soft mb-10 text-xs uppercase tracking-[0.42em]">Wedding Invitation</p>
+          <h1 className="invitation-copy font-script text-[5.8rem] leading-[0.75]">
+            Joey
+            <span className="block text-[0.72em]">&</span>
+            Ana
           </h1>
-          <p className="invitation-copy mt-8 font-display text-3xl">{wedding.tagline}</p>
+          <p className="invitation-copy mt-10 font-display text-3xl font-semibold">Are getting married</p>
           <button
             type="button"
             onClick={onOpen}
-            className="invitation-copy mt-12 flex size-36 items-center justify-center rounded-full border-2 border-gold/80 bg-white/42 px-7 py-4 font-display text-3xl italic backdrop-blur-md transition hover:bg-white/56 focus:outline-none focus:ring-4 focus:ring-gold/30"
+            className="invitation-copy mt-12 flex size-36 items-center justify-center rounded-full border-2 border-ivory/90 bg-black/40 px-7 py-4 font-display text-3xl italic backdrop-blur-md transition hover:bg-black/60 focus:outline-none focus:ring-4 focus:ring-ivory/30"
           >
             Start
             <span className="sr-only"> Open Invitation</span>
           </button>
-          <p className="invitation-copy mt-5 font-display text-3xl italic">Tap to start</p>
+          <p className="invitation-copy mt-5 font-display text-3xl font-semibold">Tap to start</p>
         </motion.div>
       </div>
     </motion.section>

@@ -40,12 +40,12 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
         eyebrow: '',
         content: (
           <div className="text-center">
-            <h1 className="invitation-copy font-display text-[4.25rem] font-medium italic leading-[0.9]">
+            <h1 className="invitation-copy font-script text-[5.8rem] leading-[0.75]">
               Joey
-              <span className="block text-[0.72em] italic">&</span>
+              <span className="block text-[0.72em]">&</span>
               Ana
             </h1>
-            <p className="invitation-copy mt-8 font-display text-2xl">Are getting married</p>
+            <p className="invitation-copy mt-10 font-display text-2xl font-semibold">Are getting married</p>
           </div>
         ),
       },
@@ -105,7 +105,7 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
             <p className="invitation-copy-soft mt-6 text-lg leading-8">{wedding.details.adultsOnly}</p>
             <div className="mt-8 grid gap-3">
               {wedding.schedule.map((item) => (
-                <div key={`${item.time}-${item.label}`} className="rounded-md border border-gold/30 bg-white/42 px-4 py-3">
+                <div key={`${item.time}-${item.label}`} className="rounded-md border border-gold/30 bg-black/40 px-4 py-3">
                   <p className="text-xs uppercase tracking-[0.24em] text-gold">{item.time}</p>
                   <p className="mt-1 text-champagne">{item.label}</p>
                 </div>
@@ -139,7 +139,7 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
               href={wedding.travelUrl}
               target="_blank"
               rel="noreferrer"
-              className="mt-8 inline-flex items-center justify-center gap-2 rounded-full border border-gold/60 bg-white/44 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-gold"
+              className="mt-8 inline-flex items-center justify-center gap-2 rounded-full border border-gold/60 bg-black/40 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-gold"
             >
               Travel & Accommodation
               <ExternalLink size={15} aria-hidden="true" />
@@ -157,7 +157,7 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
             <h2 className="invitation-copy text-center font-display text-5xl">FAQ</h2>
             <div className="mt-7 space-y-4 text-left">
               {wedding.faq.map((item) => (
-                <div key={item.question} className="rounded-md border border-gold/24 bg-white/42 p-4">
+                <div key={item.question} className="rounded-md border border-gold/25 bg-black/40 p-4">
                   <h3 className="font-semibold text-champagne">{item.question}</h3>
                   <p className="mt-2 text-sm leading-6 text-champagne/80">{item.answer}</p>
                 </div>
@@ -205,11 +205,10 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
                 fill
                 sizes="(max-width: 640px) 100vw, 430px"
                 priority={index < 2}
-                className="object-cover opacity-72"
+                className="object-cover opacity-70"
               />
-              <div className="absolute inset-0 bg-white/34" />
-              <div className="absolute inset-0 bg-gradient-to-b from-white/28 via-white/44 to-white/66" />
-              <div className="absolute inset-x-8 top-[28%] h-[42%] rounded-full bg-white/48 blur-3xl" />
+              <div className="absolute inset-0 bg-black/70" />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/55 to-black/90" />
               <div className="relative z-10 flex h-full flex-col px-7 pb-20 pt-16">
                 {slide.eyebrow ? (
                   <p className="invitation-copy-soft text-center font-display text-2xl">{slide.eyebrow}</p>
@@ -232,7 +231,7 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
               key={slide.id}
               type="button"
               onClick={() => goToSlide(index)}
-              className={`size-1.5 rounded-full transition ${index === activeSlide ? 'bg-ivory' : 'bg-ivory/35'}`}
+              className={`size-1.5 rounded-full transition ${index === activeSlide ? 'bg-ivory' : 'bg-ivory/40'}`}
               aria-label={`Go to invitation page ${index + 1}`}
             />
           ))}
