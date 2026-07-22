@@ -57,7 +57,7 @@ export const wedding = {
   // Replace this with your final travel and accommodation page or document.
   travelUrl: 'https://example.com/travel',
   // Replace this music file with a licensed or original final track.
-  musicFileUrl: '/audio/placeholder-instrumental.wav',
+  musicFileUrl: '/audio/wedding-song.mp3',
   images: {
     // Replace with the couple photo once available.
     coupleHero: '/images/photos/joey-ana-05.jpg',
