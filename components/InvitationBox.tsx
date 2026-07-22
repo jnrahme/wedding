@@ -5,8 +5,6 @@ import { useMemo, useRef, useState, type ReactNode } from 'react';
 import {
   ArrowLeft,
   CalendarDays,
-  ChevronLeft,
-  ChevronRight,
   Church,
   ExternalLink,
   GlassWater,
@@ -42,12 +40,12 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
         eyebrow: 'Are getting married',
         content: (
           <div className="text-center">
-            <h1 className="font-display text-[5.2rem] font-medium leading-[0.78] text-ivory">
+            <h1 className="font-display text-[4.25rem] font-medium italic leading-[0.9] text-ivory">
               Joey
-              <span className="block text-[0.52em] italic gold-text">&</span>
+              <span className="block text-[0.72em] italic text-ivory">&</span>
               Ana
             </h1>
-            <p className="mt-8 font-display text-3xl italic leading-10 text-ivory">
+            <p className="mt-8 font-display text-2xl leading-8 text-ivory">
               Together with our families, we invite you to celebrate the beginning of our forever.
             </p>
           </div>
@@ -193,8 +191,8 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
   }
 
   return (
-    <section className="flex min-h-dvh items-center justify-center bg-[radial-gradient(circle_at_50%_20%,rgba(198,161,91,0.18),transparent_28rem),linear-gradient(135deg,#080807,#10251f_52%,#080807)] p-0 sm:p-6">
-      <div className="relative h-dvh w-full overflow-hidden bg-ink shadow-2xl sm:h-[min(86vh,860px)] sm:max-w-[430px] sm:rounded-[2rem] sm:border sm:border-gold/35">
+    <section className="flex min-h-dvh items-center justify-center bg-black p-3 sm:p-8">
+      <div className="relative h-[calc(100dvh-1.5rem)] w-full max-w-[430px] overflow-hidden rounded-[4px] border-[6px] border-ivory bg-ink shadow-2xl sm:h-[min(92vh,860px)]">
         <div
           ref={scrollerRef}
           onScroll={handleScroll}
@@ -209,16 +207,16 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
                 fill
                 sizes="(max-width: 640px) 100vw, 430px"
                 priority={index < 2}
-                className="object-cover opacity-58"
+                className="object-cover opacity-72"
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-ink/25 via-ink/42 to-ink/94" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_34%,rgba(198,161,91,0.16),transparent_18rem)]" />
-              <div className="relative z-10 flex h-full flex-col px-7 pb-24 pt-16">
-                <p className="text-center text-xs uppercase tracking-[0.34em] text-champagne/84">{slide.eyebrow}</p>
+              <div className="absolute inset-0 bg-black/42" />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/18 via-black/32 to-black/70" />
+              <div className="relative z-10 flex h-full flex-col px-7 pb-20 pt-16">
+                <p className="text-center font-display text-2xl text-ivory">{slide.eyebrow}</p>
                 <div className="flex flex-1 items-center justify-center overflow-y-auto py-8">{slide.content}</div>
                 {index < slides.length - 1 ? (
-                  <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center text-ivory/92">
-                    <span className="font-display text-3xl italic">Swipe Left</span>
+                  <div className="absolute bottom-7 left-1/2 flex -translate-x-1/2 flex-col items-center text-ivory/92">
+                    <span className="font-display text-2xl italic">Swipe Left</span>
                     <ArrowLeft className="mt-2" size={34} aria-hidden="true" />
                   </div>
                 ) : null}
@@ -227,40 +225,16 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
           ))}
         </div>
 
-        <div className="absolute left-0 right-0 top-5 z-20 flex justify-center gap-2" aria-label="Invitation page position">
+        <div className="absolute bottom-8 left-0 right-0 z-20 flex justify-center gap-2" aria-label="Invitation page position">
           {slides.map((slide, index) => (
             <button
               key={slide.id}
               type="button"
               onClick={() => goToSlide(index)}
-              className={`h-1.5 rounded-full transition ${index === activeSlide ? 'w-8 bg-gold' : 'w-4 bg-ivory/35'}`}
+              className={`size-1.5 rounded-full transition ${index === activeSlide ? 'bg-ivory' : 'bg-ivory/35'}`}
               aria-label={`Go to invitation page ${index + 1}`}
             />
           ))}
-        </div>
-
-        <div className="absolute inset-x-4 bottom-4 z-30 flex items-center justify-between">
-          <button
-            type="button"
-            onClick={() => goToSlide(activeSlide - 1)}
-            className="flex size-10 items-center justify-center rounded-full bg-ink/45 text-ivory backdrop-blur-md disabled:opacity-30"
-            disabled={activeSlide === 0}
-            aria-label="Previous invitation page"
-          >
-            <ChevronLeft aria-hidden="true" />
-          </button>
-          <p className="font-display text-2xl text-ivory">
-            Joey & Ana <span className="text-gold">—</span> 08.08.2026
-          </p>
-          <button
-            type="button"
-            onClick={() => goToSlide(activeSlide + 1)}
-            className="flex size-10 items-center justify-center rounded-full bg-ink/45 text-ivory backdrop-blur-md disabled:opacity-30"
-            disabled={activeSlide === slides.length - 1}
-            aria-label="Next invitation page"
-          >
-            <ChevronRight aria-hidden="true" />
-          </button>
         </div>
       </div>
     </section>

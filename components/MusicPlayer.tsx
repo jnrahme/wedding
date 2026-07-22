@@ -75,8 +75,10 @@ export function MusicPlayer({ enabled, compact = false }: MusicPlayerProps) {
 
   return (
     <div
-      className={`fixed z-40 rounded-full border border-gold/35 bg-ink/70 shadow-glow backdrop-blur-md ${
-        compact ? 'bottom-4 left-4 px-2 py-2' : 'bottom-4 right-4 px-3 py-2'
+      className={`fixed z-40 rounded-full ${
+        compact
+          ? 'bottom-[max(1.75rem,calc(4dvh+1.5rem))] left-[max(1.75rem,calc(50vw-215px+1.5rem))]'
+          : 'bottom-4 right-4 border border-gold/35 bg-ink/70 px-3 py-2 shadow-glow backdrop-blur-md'
       }`}
     >
       {wedding.musicFileUrl ? (
@@ -94,7 +96,7 @@ export function MusicPlayer({ enabled, compact = false }: MusicPlayerProps) {
           type="button"
           onClick={togglePlay}
           disabled={!wedding.musicFileUrl || hasAudioError}
-          className="flex size-10 items-center justify-center rounded-full bg-transparent text-ivory transition hover:bg-ivory/10 focus:outline-none focus:ring-4 focus:ring-gold/30 disabled:cursor-not-allowed disabled:opacity-50"
+          className="flex size-10 items-center justify-center rounded-full bg-transparent text-ivory transition hover:bg-ivory/10 focus:outline-none focus:ring-4 focus:ring-ivory/30 disabled:cursor-not-allowed disabled:opacity-50"
           aria-label={label}
           title={hasAudioError ? 'Music file unavailable' : label}
         >
