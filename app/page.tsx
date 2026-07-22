@@ -1,8 +1,7 @@
 'use client';
 
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { wedding } from '@/config/wedding';
 import { InvitationBox } from '@/components/InvitationBox';
 import { MusicPlayer } from '@/components/MusicPlayer';
 import { OpeningScreen } from '@/components/OpeningScreen';
@@ -10,10 +9,6 @@ import { OpeningScreen } from '@/components/OpeningScreen';
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
   const prefersReducedMotion = useReducedMotion();
-
-  const openExternalRsvp = useCallback(() => {
-    window.open(wedding.rsvpUrl, '_blank', 'noopener,noreferrer');
-  }, []);
 
   return (
     <main>
@@ -25,7 +20,7 @@ export default function Home() {
         transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
         aria-hidden={!isOpen}
       >
-        <InvitationBox openExternalRsvp={openExternalRsvp} />
+        <InvitationBox />
       </motion.div>
     </main>
   );

@@ -6,11 +6,7 @@ import { wedding } from '@/config/wedding';
 import { GoldParticles } from './GoldParticles';
 import { PhotoBackdrop } from './PhotoBackdrop';
 
-type HeroProps = {
-  onRsvp: () => void;
-};
-
-export function Hero({ onRsvp }: HeroProps) {
+export function Hero() {
   const prefersReducedMotion = useReducedMotion();
 
   return (
@@ -72,13 +68,6 @@ export function Hero({ onRsvp }: HeroProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.45 }}
         >
-          <button
-            type="button"
-            onClick={onRsvp}
-            className="rounded-full bg-gold px-8 py-4 text-sm font-semibold uppercase tracking-[0.22em] text-ink transition hover:bg-champagne focus:outline-none focus:ring-4 focus:ring-gold/30"
-          >
-            RSVP
-          </button>
           <a
             href="#details"
             className="rounded-full border border-gold/55 px-8 py-4 text-sm font-semibold uppercase tracking-[0.22em] text-ivory transition hover:bg-ivory/10 focus:outline-none focus:ring-4 focus:ring-gold/20"

@@ -15,11 +15,6 @@ import {
 import { wedding } from '@/config/wedding';
 import { Countdown } from './Countdown';
 import { PhotoBackdrop } from './PhotoBackdrop';
-import { RSVP } from './RSVP';
-
-type InvitationBoxProps = {
-  openExternalRsvp: () => void;
-};
 
 type Slide = {
   id: string;
@@ -33,7 +28,7 @@ type SwipePoint = {
   y: number;
 };
 
-export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
+export function InvitationBox() {
   const scrollerRef = useRef<HTMLDivElement | null>(null);
   const swipeStartRef = useRef<SwipePoint | null>(null);
   const activeSlideRef = useRef(0);
@@ -128,12 +123,6 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
         content: <Countdown compact />,
       },
       {
-        id: 'rsvp',
-        image: wedding.images.story[6],
-        eyebrow: '',
-        content: <RSVP openExternalRsvp={openExternalRsvp} compact />,
-      },
-      {
         id: 'travel',
         image: wedding.images.story[7],
         eyebrow: 'Travel',
@@ -212,7 +201,7 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
         ),
       },
     ],
-    [openExternalRsvp],
+    [],
   );
 
   useEffect(() => {

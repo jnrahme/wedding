@@ -28,7 +28,6 @@ Editing Wedding Details
 
 All primary content is in `config/wedding.ts`, including:
 
-- RSVP URL
 - Music file URL
 - Couple and venue photos
 - Wedding schedule
@@ -66,10 +65,3 @@ Custom Domain on Vercel
 3. Add the custom domain.
 4. Follow Vercel's DNS instructions at your domain registrar.
 5. After DNS verifies, update `siteUrl` in `config/wedding.ts`.
-
-RSVP Backend Connection
------------------------
-
-The external RSVP button uses `rsvpUrl` in `config/wedding.ts`.
-
-The built-in RSVP form currently prepares a `payload` in `components/RSVP.tsx`. Replace the comment in `handleSubmit` with a POST request to Google Sheets, Formspree, Supabase, or your preferred backend.

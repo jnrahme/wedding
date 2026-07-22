@@ -5,10 +5,6 @@ import { ArrowLeft, CalendarDays, Church, Gem, MapPin } from 'lucide-react';
 import { wedding } from '@/config/wedding';
 import { PhotoBackdrop } from './PhotoBackdrop';
 
-type StoryExperienceProps = {
-  onRsvp: () => void;
-};
-
 const slides = [
   {
     eyebrow: 'The Invitation',
@@ -42,7 +38,7 @@ const slides = [
   },
 ];
 
-export function StoryExperience({ onRsvp }: StoryExperienceProps) {
+export function StoryExperience() {
   const prefersReducedMotion = useReducedMotion();
 
   return (
@@ -80,15 +76,7 @@ export function StoryExperience({ onRsvp }: StoryExperienceProps) {
                   {slide.titleSecond ? <span className="block">{slide.titleSecond}</span> : null}
                 </h2>
                 <p className="mt-7 max-w-sm font-display text-3xl italic leading-10 text-ivory">{slide.body}</p>
-                {index === slides.length - 1 ? (
-                  <button
-                    type="button"
-                    onClick={onRsvp}
-                    className="mt-10 rounded-full bg-gold px-8 py-4 text-sm font-semibold uppercase tracking-[0.22em] text-ink shadow-glow"
-                  >
-                    RSVP
-                  </button>
-                ) : (
+                {index === slides.length - 1 ? null : (
                   <div className="absolute bottom-10 flex flex-col items-center text-ivory/90" aria-hidden="true">
                     <span className="font-display text-3xl italic">Swipe Left</span>
                     <ArrowLeft className="mt-2" />

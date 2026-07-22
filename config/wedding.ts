@@ -53,8 +53,6 @@ export const wedding = {
     { time: '8:00 PM', label: 'Reception begins' },
     { time: '9:00 PM', label: 'Dinner and celebration' },
   ],
-  rsvpUrl:
-    'https://www.theknot.com/us/joey-rahme-and-ana-lahoud-2026-08-08-031a1a93-0c54-4512-bdb7-e4d9dcf0a9d0/rsvp',
   // Replace this with your final travel and accommodation page or document.
   travelUrl:
     'https://www.theknot.com/us/joey-rahme-and-ana-lahoud-2026-08-08-031a1a93-0c54-4512-bdb7-e4d9dcf0a9d0/travel',
