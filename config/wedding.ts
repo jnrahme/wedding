@@ -30,7 +30,8 @@ export const wedding = {
       time: '6:00 PM',
       note: 'Please arrive early to be seated before the ceremony begins.',
       // Replace this Google Maps link with the final church location link.
-      mapUrl: 'https://www.google.com/maps/search/?api=1&query=Mar+Estephan+Church+Batroun+Lebanon',
+      mapUrl:
+        'https://www.google.com/maps/place/St.+Stephen+Cathedral/@34.2571182,35.6561474,17z/data=!3m1!4b1!4m6!3m5!1s0x151f58b20284fbb1:0x18a10fcb3c6c47e3!8m2!3d34.2571182!4d35.6587223!16s%2Fg%2F11g7cwn86n?entry=ttu&g_ep=EgoyMDI2MDcyMC4wIKXMDSoASAFQAw%3D%3D',
     },
     reception: {
       title: 'Reception',
@@ -55,7 +56,8 @@ export const wedding = {
   rsvpUrl:
     'https://www.theknot.com/us/joey-rahme-and-ana-lahoud-2026-08-08-031a1a93-0c54-4512-bdb7-e4d9dcf0a9d0/rsvp',
   // Replace this with your final travel and accommodation page or document.
-  travelUrl: 'https://example.com/travel',
+  travelUrl:
+    'https://www.theknot.com/us/joey-rahme-and-ana-lahoud-2026-08-08-031a1a93-0c54-4512-bdb7-e4d9dcf0a9d0/travel',
   // Replace this music file with a licensed or original final track.
   musicFileUrl: '/audio/wedding-song.mp3',
   images: {
