@@ -167,6 +167,15 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
                 </div>
               ))}
             </div>
+            <a
+              href={wedding.faqUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-6 inline-flex items-center justify-center gap-2 rounded-full border border-gold/80 bg-black/50 px-7 py-3 text-xs font-semibold uppercase tracking-[0.24em] text-gold backdrop-blur-sm transition hover:bg-black/60 focus:outline-none focus:ring-4 focus:ring-gold/30"
+            >
+              View Q&A
+              <ExternalLink size={15} aria-hidden="true" />
+            </a>
           </div>
         ),
       },

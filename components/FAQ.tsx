@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, ExternalLink } from 'lucide-react';
 import { wedding } from '@/config/wedding';
 import { Reveal } from './Reveal';
 
@@ -13,6 +13,15 @@ export function FAQ() {
       <Reveal className="mx-auto max-w-3xl text-center">
         <p className="text-xs uppercase tracking-[0.36em] text-gold">Questions</p>
         <h2 className="mt-4 font-display text-5xl text-ivory sm:text-6xl">Frequently asked questions</h2>
+        <a
+          href={wedding.faqUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="mt-8 inline-flex items-center justify-center gap-2 rounded-full border border-gold/60 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-gold"
+        >
+          View Q&A
+          <ExternalLink size={15} aria-hidden="true" />
+        </a>
       </Reveal>
       <Reveal className="mx-auto mt-10 max-w-3xl divide-y divide-gold/20 rounded-lg border border-gold/24 bg-ivory/[0.04]">
         {wedding.faq.map((item, index) => {
