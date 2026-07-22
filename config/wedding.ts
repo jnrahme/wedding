@@ -25,7 +25,7 @@ export const wedding = {
   details: {
     ceremony: {
       title: 'Ceremony',
-      venue: 'Mar Estephan Church',
+      venue: 'St. Stephen Cathedral',
       location: 'Batroun, Lebanon',
       time: '6:00 PM',
       note: 'Please arrive early to be seated before the ceremony begins.',
