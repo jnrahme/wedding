@@ -123,7 +123,7 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
       {
         id: 'rsvp',
         image: wedding.images.story[6],
-        eyebrow: 'Kindly Reply',
+        eyebrow: '',
         content: <RSVP openExternalRsvp={openExternalRsvp} compact />,
       },
       {
@@ -205,10 +205,10 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
                 fill
                 sizes="(max-width: 640px) 100vw, 430px"
                 priority={index < 2}
-                className="object-cover opacity-70"
+                className="object-cover opacity-80"
               />
-              <div className="absolute inset-0 bg-black/70" />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/55 to-black/90" />
+              <div className="absolute inset-0 bg-black/52" />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/24 via-black/44 to-black/80" />
               <div className="relative z-10 flex h-full flex-col px-7 pb-20 pt-16">
                 {slide.eyebrow ? (
                   <p className="invitation-copy-soft text-center font-display text-2xl">{slide.eyebrow}</p>
