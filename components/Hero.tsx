@@ -21,9 +21,10 @@ export function Hero({ onRsvp }: HeroProps) {
         fill
         priority
         sizes="100vw"
-        className="object-cover opacity-46"
+        className="object-cover opacity-70"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-ink/58 via-emerald/58 to-ink" />
+      <div className="absolute inset-0 bg-black/70" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/90" />
       <div className="absolute inset-0 bg-radial-gold" />
       <GoldParticles />
       <div className="section-shell relative z-10 flex min-h-dvh flex-col items-center justify-center pb-16 pt-24 text-center">

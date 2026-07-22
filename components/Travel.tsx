@@ -11,9 +11,10 @@ export function Travel() {
         alt="Elegant Batroun venue placeholder"
         fill
         sizes="100vw"
-        className="object-cover opacity-24"
+        className="object-cover opacity-70"
       />
-      <div className="absolute inset-0 bg-gradient-to-br from-ink/88 via-emerald/78 to-ink/88" />
+      <div className="absolute inset-0 bg-black/70" />
+      <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/90" />
       <Reveal className="section-shell relative z-10">
         <div className="max-w-2xl">
           <div className="flex items-center gap-3 text-gold">

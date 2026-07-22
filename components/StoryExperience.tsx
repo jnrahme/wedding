@@ -57,15 +57,16 @@ export function StoryExperience({ onRsvp }: StoryExperienceProps) {
                 alt=""
                 fill
                 sizes="100vw"
-                className="object-cover opacity-58"
+                className="object-cover opacity-70"
                 priority={index === 0}
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-ink/24 via-ink/40 to-ink/92" />
+              <div className="absolute inset-0 bg-black/70" />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/90" />
               <div className="absolute inset-x-0 top-8 z-10 flex justify-center gap-2" aria-hidden="true">
                 {slides.map((dot, dotIndex) => (
                   <span
                     key={dot.eyebrow}
-                    className={`h-1 rounded-full ${dotIndex === index ? 'w-9 bg-gold' : 'w-5 bg-ivory/34'}`}
+                    className={`h-1 rounded-full ${dotIndex === index ? 'w-9 bg-gold' : 'w-5 bg-ivory/40'}`}
                   />
                 ))}
               </div>
