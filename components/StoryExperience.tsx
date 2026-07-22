@@ -1,9 +1,9 @@
 'use client';
 
-import Image from 'next/image';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowLeft, CalendarDays, Church, Gem, MapPin } from 'lucide-react';
 import { wedding } from '@/config/wedding';
+import { PhotoBackdrop } from './PhotoBackdrop';
 
 type StoryExperienceProps = {
   onRsvp: () => void;
@@ -52,16 +52,11 @@ export function StoryExperience({ onRsvp }: StoryExperienceProps) {
           const Icon = slide.icon;
           return (
             <article key={slide.eyebrow} className="relative min-h-dvh min-w-full snap-center overflow-hidden">
-              <Image
+              <PhotoBackdrop
                 src={slide.image}
-                alt=""
-                fill
                 sizes="100vw"
-                className="object-cover opacity-70"
                 priority={index === 0}
               />
-              <div className="absolute inset-0 bg-black/70" />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/90" />
               <div className="absolute inset-x-0 top-8 z-10 flex justify-center gap-2" aria-hidden="true">
                 {slides.map((dot, dotIndex) => (
                   <span

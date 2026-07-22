@@ -1,20 +1,17 @@
-import Image from 'next/image';
 import { ExternalLink, Plane } from 'lucide-react';
 import { wedding } from '@/config/wedding';
+import { PhotoBackdrop } from './PhotoBackdrop';
 import { Reveal } from './Reveal';
 
 export function Travel() {
   return (
     <section className="relative overflow-hidden border-y border-gold/20 bg-emerald/36 py-20 sm:py-28">
-      <Image
+      <PhotoBackdrop
         src={wedding.images.venue}
         alt="Elegant Batroun venue placeholder"
-        fill
         sizes="100vw"
-        className="object-cover opacity-70"
+        gradient="diagonal"
       />
-      <div className="absolute inset-0 bg-black/70" />
-      <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/90" />
       <Reveal className="section-shell relative z-10">
         <div className="max-w-2xl">
           <div className="flex items-center gap-3 text-gold">

@@ -1,8 +1,8 @@
 'use client';
 
 import { motion, useReducedMotion } from 'framer-motion';
-import Image from 'next/image';
 import { wedding } from '@/config/wedding';
+import { PhotoBackdrop } from './PhotoBackdrop';
 
 type OpeningScreenProps = {
   onOpen: () => void;
@@ -19,16 +19,7 @@ export function OpeningScreen({ onOpen }: OpeningScreenProps) {
       aria-label="Opening invitation"
     >
       <div className="relative h-[calc(100dvh-1.5rem)] w-full max-w-[430px] overflow-hidden rounded-[4px] border-[6px] border-ivory bg-ink shadow-2xl sm:h-[min(92vh,860px)]">
-        <Image
-          src={wedding.images.coupleHero}
-          alt=""
-          fill
-          priority
-          sizes="(max-width: 640px) 100vw, 430px"
-          className="object-cover opacity-70"
-        />
-        <div className="absolute inset-0 bg-black/70" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/90" />
+        <PhotoBackdrop src={wedding.images.coupleHero} priority />
         <motion.div
           className="relative z-10 mx-auto flex h-full max-w-sm flex-col items-center justify-center px-6"
           initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}

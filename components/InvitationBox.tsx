@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { useMemo, useRef, useState, type ReactNode } from 'react';
 import {
   ArrowLeft,
@@ -14,6 +13,7 @@ import {
 } from 'lucide-react';
 import { wedding } from '@/config/wedding';
 import { Countdown } from './Countdown';
+import { PhotoBackdrop } from './PhotoBackdrop';
 import { RSVP } from './RSVP';
 
 type InvitationBoxProps = {
@@ -203,16 +203,10 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
         >
           {slides.map((slide, index) => (
             <article key={slide.id} className="relative h-full min-w-full snap-center overflow-hidden">
-              <Image
+              <PhotoBackdrop
                 src={slide.image}
-                alt=""
-                fill
-                sizes="(max-width: 640px) 100vw, 430px"
                 priority={index < 2}
-                className="object-cover opacity-70"
               />
-              <div className="absolute inset-0 bg-black/70" />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/90" />
               <div className="relative z-10 flex h-full flex-col px-7 pb-20 pt-16">
                 {slide.eyebrow ? (
                   <p className="invitation-copy-soft text-center font-display text-2xl">{slide.eyebrow}</p>

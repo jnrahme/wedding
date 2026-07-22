@@ -1,10 +1,10 @@
 'use client';
 
-import Image from 'next/image';
 import { motion, useReducedMotion } from 'framer-motion';
 import { CalendarDays, MapPin } from 'lucide-react';
 import { wedding } from '@/config/wedding';
 import { GoldParticles } from './GoldParticles';
+import { PhotoBackdrop } from './PhotoBackdrop';
 
 type HeroProps = {
   onRsvp: () => void;
@@ -15,16 +15,12 @@ export function Hero({ onRsvp }: HeroProps) {
 
   return (
     <section className="relative min-h-dvh overflow-hidden">
-      <Image
+      <PhotoBackdrop
         src={wedding.images.coupleHero}
         alt="Elegant destination wedding visual placeholder"
-        fill
         priority
         sizes="100vw"
-        className="object-cover opacity-70"
       />
-      <div className="absolute inset-0 bg-black/70" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/90" />
       <div className="absolute inset-0 bg-radial-gold" />
       <GoldParticles />
       <div className="section-shell relative z-10 flex min-h-dvh flex-col items-center justify-center pb-16 pt-24 text-center">

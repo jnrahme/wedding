@@ -77,6 +77,9 @@ export const wedding = {
       '/images/photos/joey-ana-01.jpg',
     ],
   },
+  // Change this one value to adjust darkness for every photo background.
+  // 0 = no dark overlay, 100 = fully dark.
+  photoDarkness: 70,
   travel: {
     title: 'Travel & Accommodation',
     // Replace these travel details with hotel blocks, shuttle details, airport notes, and local recommendations.
