@@ -96,16 +96,18 @@ export function MusicPlayer({ enabled, compact = false }: MusicPlayerProps) {
           type="button"
           onClick={togglePlay}
           disabled={!wedding.musicFileUrl || hasAudioError}
-          className="flex size-10 items-center justify-center rounded-full bg-black/30 text-gold transition hover:bg-black/50 focus:outline-none focus:ring-4 focus:ring-gold/30 disabled:cursor-not-allowed disabled:opacity-50"
+          className={`flex items-center justify-center rounded-full bg-black/30 text-gold transition hover:bg-black/50 focus:outline-none focus:ring-4 focus:ring-gold/30 disabled:cursor-not-allowed disabled:opacity-50 ${
+            compact ? 'size-14' : 'size-12'
+          }`}
           aria-label={label}
           title={hasAudioError ? 'Music file unavailable' : label}
         >
           {isPlaying ? (
-            <Pause size={22} aria-hidden="true" />
+            <Pause size={compact ? 28 : 24} aria-hidden="true" />
           ) : compact ? (
-            <Music size={25} aria-hidden="true" />
+            <Music size={28} aria-hidden="true" />
           ) : (
-            <Play size={18} aria-hidden="true" />
+            <Play size={20} aria-hidden="true" />
           )}
         </button>
         <button
