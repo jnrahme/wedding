@@ -6,9 +6,10 @@ import { Reveal } from './Reveal';
 
 type RSVPProps = {
   openExternalRsvp: () => void;
+  compact?: boolean;
 };
 
-export function RSVP({ openExternalRsvp }: RSVPProps) {
+export function RSVP({ openExternalRsvp, compact = false }: RSVPProps) {
   const [submitted, setSubmitted] = useState(false);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -21,6 +22,58 @@ export function RSVP({ openExternalRsvp }: RSVPProps) {
     console.info('RSVP payload ready for backend connection:', payload);
     setSubmitted(true);
     event.currentTarget.reset();
+  }
+
+  if (compact) {
+    return (
+      <div className="w-full text-center">
+        <h2 className="font-display text-5xl text-ivory">RSVP</h2>
+        <p className="mt-5 text-lg leading-8 text-ivory/76">
+          Please respond using the external RSVP link, or use the built-in form below when a backend is connected.
+        </p>
+        <button
+          type="button"
+          onClick={openExternalRsvp}
+          className="mt-7 inline-flex items-center justify-center gap-2 rounded-full bg-gold px-8 py-4 text-sm font-semibold uppercase tracking-[0.22em] text-ink"
+        >
+          RSVP
+          <ExternalLink size={17} aria-hidden="true" />
+        </button>
+        <form onSubmit={handleSubmit} className="mt-7 grid max-h-[46dvh] gap-3 overflow-y-auto text-left">
+          <input name="guestName" className="field" placeholder="Guest name" required autoComplete="name" />
+          <div className="grid grid-cols-2 gap-3">
+            <select name="attending" className="field" defaultValue="Yes" aria-label="Attending">
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+            <input
+              name="guestCount"
+              type="number"
+              min="1"
+              max="4"
+              className="field"
+              defaultValue="1"
+              aria-label="Number of guests"
+            />
+          </div>
+          <input name="mealPreference" className="field" placeholder="Meal preference" />
+          <input name="dietaryRestrictions" className="field" placeholder="Dietary restrictions" />
+          <input name="songRequest" className="field" placeholder="Song request" />
+          <textarea name="message" className="field min-h-24 resize-y" placeholder="Message to the couple" />
+          <button
+            type="submit"
+            className="rounded-full border border-gold px-5 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-champagne"
+          >
+            Submit Built-In Form
+          </button>
+          {submitted ? (
+            <p className="rounded-md border border-gold/30 bg-gold/10 p-3 text-xs text-champagne" role="status">
+              Response prepared for backend connection.
+            </p>
+          ) : null}
+        </form>
+      </div>
+    );
   }
 
   return (

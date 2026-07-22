@@ -23,8 +23,18 @@ function getTimeLeft(): TimeLeft {
   };
 }
 
-export function Countdown() {
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(() => getTimeLeft());
+type CountdownProps = {
+  compact?: boolean;
+};
+
+export function Countdown({ compact = false }: CountdownProps) {
+  const [isMounted, setIsMounted] = useState(false);
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
   const units = useMemo(
     () => [
       ['Days', timeLeft.days],
@@ -36,9 +46,27 @@ export function Countdown() {
   );
 
   useEffect(() => {
+    setIsMounted(true);
+    setTimeLeft(getTimeLeft());
     const timer = window.setInterval(() => setTimeLeft(getTimeLeft()), 1000);
     return () => window.clearInterval(timer);
   }, []);
+
+  if (compact) {
+    return (
+      <div className="w-full text-center">
+        <h2 className="font-display text-5xl text-ivory">Until {wedding.date.display}</h2>
+        <div className="mt-8 grid grid-cols-2 gap-3">
+          {units.map(([label, value]) => (
+            <div key={label} className="rounded-md border border-gold/30 bg-ink/35 p-4">
+              <p className="font-display text-4xl text-ivory">{isMounted ? String(value).padStart(2, '0') : '--'}</p>
+              <p className="mt-1 text-[0.65rem] uppercase tracking-[0.2em] text-champagne/76">{label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <section className="border-y border-gold/20 bg-ink/38 py-14">
@@ -51,7 +79,7 @@ export function Countdown() {
           {units.map(([label, value]) => (
             <div key={label} className="fine-border rounded-lg bg-ivory/[0.04] p-5">
               <p className="font-display text-4xl text-ivory sm:text-5xl">
-                {String(value).padStart(2, '0')}
+                {isMounted ? String(value).padStart(2, '0') : '--'}
               </p>
               <p className="mt-2 text-xs uppercase tracking-[0.24em] text-champagne/70">{label}</p>
             </div>

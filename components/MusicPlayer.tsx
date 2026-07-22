@@ -1,17 +1,18 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { Pause, Play, Volume1, Volume2, VolumeX } from 'lucide-react';
+import { Music, Pause, Play, Volume1, Volume2, VolumeX } from 'lucide-react';
 import { wedding } from '@/config/wedding';
 
 type MusicPlayerProps = {
   enabled: boolean;
+  compact?: boolean;
 };
 
 const FADE_INTERVAL_MS = 120;
 const FADE_STEP = 0.035;
 
-export function MusicPlayer({ enabled }: MusicPlayerProps) {
+export function MusicPlayer({ enabled, compact = false }: MusicPlayerProps) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
@@ -69,7 +70,11 @@ export function MusicPlayer({ enabled }: MusicPlayerProps) {
   const label = isPlaying ? 'Pause music' : 'Play music';
 
   return (
-    <div className="fixed bottom-4 right-4 z-40 rounded-full border border-gold/35 bg-ink/78 px-3 py-2 shadow-glow backdrop-blur-md">
+    <div
+      className={`fixed z-40 rounded-full border border-gold/35 bg-ink/70 shadow-glow backdrop-blur-md ${
+        compact ? 'bottom-4 left-4 px-2 py-2' : 'bottom-4 right-4 px-3 py-2'
+      }`}
+    >
       {wedding.musicFileUrl ? (
         <audio
           ref={audioRef}
@@ -85,17 +90,25 @@ export function MusicPlayer({ enabled }: MusicPlayerProps) {
           type="button"
           onClick={togglePlay}
           disabled={!wedding.musicFileUrl || hasAudioError}
-          className="flex size-10 items-center justify-center rounded-full bg-gold text-ink transition hover:bg-champagne focus:outline-none focus:ring-4 focus:ring-gold/30 disabled:cursor-not-allowed disabled:opacity-50"
+          className="flex size-10 items-center justify-center rounded-full bg-transparent text-ivory transition hover:bg-ivory/10 focus:outline-none focus:ring-4 focus:ring-gold/30 disabled:cursor-not-allowed disabled:opacity-50"
           aria-label={label}
           title={hasAudioError ? 'Music file unavailable' : label}
         >
-          {isPlaying ? <Pause size={18} aria-hidden="true" /> : <Play size={18} aria-hidden="true" />}
+          {isPlaying ? (
+            <Pause size={22} aria-hidden="true" />
+          ) : compact ? (
+            <Music size={25} aria-hidden="true" />
+          ) : (
+            <Play size={18} aria-hidden="true" />
+          )}
         </button>
         <button
           type="button"
           onClick={() => setIsMuted((value) => !value)}
           disabled={!wedding.musicFileUrl || hasAudioError}
-          className="flex size-9 items-center justify-center rounded-full text-champagne transition hover:bg-ivory/10 focus:outline-none focus:ring-4 focus:ring-gold/20 disabled:cursor-not-allowed disabled:opacity-50"
+          className={`size-9 items-center justify-center rounded-full text-champagne transition hover:bg-ivory/10 focus:outline-none focus:ring-4 focus:ring-gold/20 disabled:cursor-not-allowed disabled:opacity-50 ${
+            compact ? 'hidden sm:flex' : 'flex'
+          }`}
           aria-label={isMuted ? 'Unmute music' : 'Mute music'}
           title={isMuted ? 'Unmute music' : 'Mute music'}
         >
@@ -114,7 +127,7 @@ export function MusicPlayer({ enabled }: MusicPlayerProps) {
           value={volume}
           onChange={(event) => setVolume(Number(event.target.value))}
           disabled={!wedding.musicFileUrl || hasAudioError}
-          className="h-1 w-20 accent-gold disabled:opacity-50"
+          className={`h-1 accent-gold disabled:opacity-50 ${compact ? 'hidden w-16 sm:block' : 'w-20'}`}
         />
       </div>
     </div>
