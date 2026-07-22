@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useRef, useState, type ReactNode } from 'react';
+import { useMemo, useRef, useState, type PointerEvent, type ReactNode } from 'react';
 import {
   ArrowLeft,
   CalendarDays,
@@ -29,6 +29,7 @@ type Slide = {
 
 export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
   const scrollerRef = useRef<HTMLDivElement | null>(null);
+  const swipeStartRef = useRef<{ x: number; y: number } | null>(null);
   const [activeSlide, setActiveSlide] = useState(0);
 
   const slides = useMemo<Slide[]>(
@@ -201,21 +202,49 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
     setActiveSlide(Math.round(scroller.scrollLeft / scroller.clientWidth));
   }
 
+  function handlePointerDown(event: PointerEvent<HTMLDivElement>) {
+    swipeStartRef.current = { x: event.clientX, y: event.clientY };
+    event.currentTarget.setPointerCapture(event.pointerId);
+  }
+
+  function handlePointerUp(event: PointerEvent<HTMLDivElement>) {
+    const swipeStart = swipeStartRef.current;
+    swipeStartRef.current = null;
+
+    if (!swipeStart) {
+      return;
+    }
+
+    const deltaX = event.clientX - swipeStart.x;
+    const deltaY = event.clientY - swipeStart.y;
+    const isHorizontalSwipe = Math.abs(deltaX) > 56 && Math.abs(deltaX) > Math.abs(deltaY) * 1.4;
+
+    if (!isHorizontalSwipe) {
+      goToSlide(activeSlide);
+      return;
+    }
+
+    goToSlide(activeSlide + (deltaX < 0 ? 1 : -1));
+  }
+
   return (
     <section className="flex min-h-dvh items-center justify-center bg-black p-3 sm:p-8">
       <div className="relative h-[calc(100dvh-1.5rem)] w-full max-w-[430px] overflow-hidden rounded-[4px] border-[6px] border-ivory bg-ink shadow-2xl sm:h-[min(92vh,860px)]">
         <div
           ref={scrollerRef}
           onScroll={handleScroll}
-          className="flex h-full snap-x snap-mandatory overflow-x-auto overscroll-x-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          onPointerDown={handlePointerDown}
+          onPointerUp={handlePointerUp}
+          onPointerCancel={() => {
+            swipeStartRef.current = null;
+            goToSlide(activeSlide);
+          }}
+          className="flex h-full snap-x snap-mandatory overflow-hidden overscroll-x-contain touch-pan-y [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           aria-label="Swipe invitation pages"
         >
           {slides.map((slide, index) => (
             <article key={slide.id} className="relative h-full min-w-full snap-center overflow-hidden">
-              <PhotoBackdrop
-                src={slide.image}
-                priority={index < 2}
-              />
+              <PhotoBackdrop src={slide.image} priority={index < 2} />
               <div className="relative z-10 flex h-full flex-col px-7 pb-20 pt-16">
                 {slide.eyebrow ? (
                   <p className="invitation-copy-soft text-center font-display text-2xl">{slide.eyebrow}</p>
