@@ -61,6 +61,8 @@ export const wedding = {
   // Replace this with your final FAQ / Q&A page.
   faqUrl:
     'https://www.theknot.com/us/joey-rahme-and-ana-lahoud-2026-08-08-031a1a93-0c54-4512-bdb7-e4d9dcf0a9d0/q-a',
+  // Replace this with your final registry page.
+  registryUrl: 'https://withjoy.com/ana-and-joey-aug-26/registry',
   // Replace this music file with a licensed or original final track.
   musicFileUrl: '/audio/wedding-song.mp3',
   images: {

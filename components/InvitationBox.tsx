@@ -7,6 +7,7 @@ import {
   Church,
   ExternalLink,
   GlassWater,
+  Gift,
   MapPin,
   Plane,
   Shirt,
@@ -142,6 +143,30 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
               className="mt-8 inline-flex items-center justify-center gap-2 rounded-full border border-gold/60 bg-black/40 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-gold"
             >
               Travel & Accommodation
+              <ExternalLink size={15} aria-hidden="true" />
+            </a>
+          </div>
+        ),
+      },
+      {
+        id: 'registry',
+        image: wedding.images.story[5],
+        eyebrow: 'Registry',
+        content: (
+          <div className="text-center">
+            <Gift className="mx-auto mb-5 text-gold" size={34} aria-hidden="true" />
+            <h2 className="invitation-copy font-display text-5xl">With Love</h2>
+            <p className="invitation-copy-soft mt-6 text-lg leading-8">
+              Your presence is the greatest gift. For those who wish to celebrate with a gift, our registry is available
+              below.
+            </p>
+            <a
+              href={wedding.registryUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-8 inline-flex items-center justify-center gap-2 rounded-full border border-gold/80 bg-black/50 px-7 py-3 text-xs font-semibold uppercase tracking-[0.24em] text-gold backdrop-blur-sm transition hover:bg-black/60 focus:outline-none focus:ring-4 focus:ring-gold/30"
+            >
+              View Registry
               <ExternalLink size={15} aria-hidden="true" />
             </a>
           </div>
