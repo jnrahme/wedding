@@ -202,12 +202,12 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
     setActiveSlide(Math.round(scroller.scrollLeft / scroller.clientWidth));
   }
 
-  function handlePointerDown(event: PointerEvent<HTMLDivElement>) {
+  function handlePointerDown(event: PointerEvent<HTMLElement>) {
     swipeStartRef.current = { x: event.clientX, y: event.clientY };
     event.currentTarget.setPointerCapture(event.pointerId);
   }
 
-  function handlePointerUp(event: PointerEvent<HTMLDivElement>) {
+  function handlePointerUp(event: PointerEvent<HTMLElement>) {
     const swipeStart = swipeStartRef.current;
     swipeStartRef.current = null;
 
@@ -228,18 +228,20 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
   }
 
   return (
-    <section className="flex min-h-dvh items-center justify-center bg-black p-3 sm:p-8">
+    <section
+      className="flex min-h-dvh touch-pan-y items-center justify-center bg-black p-3 sm:p-8"
+      onPointerDown={handlePointerDown}
+      onPointerUp={handlePointerUp}
+      onPointerCancel={() => {
+        swipeStartRef.current = null;
+        goToSlide(activeSlide);
+      }}
+    >
       <div className="relative h-[calc(100dvh-1.5rem)] w-full max-w-[430px] overflow-hidden rounded-[4px] border-[6px] border-ivory bg-ink shadow-2xl sm:h-[min(92vh,860px)]">
         <div
           ref={scrollerRef}
           onScroll={handleScroll}
-          onPointerDown={handlePointerDown}
-          onPointerUp={handlePointerUp}
-          onPointerCancel={() => {
-            swipeStartRef.current = null;
-            goToSlide(activeSlide);
-          }}
-          className="flex h-full snap-x snap-mandatory overflow-hidden overscroll-x-contain touch-pan-y [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="flex h-full snap-x snap-mandatory overflow-hidden overscroll-x-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           aria-label="Swipe invitation pages"
         >
           {slides.map((slide, index) => (
