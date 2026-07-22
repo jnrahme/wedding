@@ -60,11 +60,22 @@ export const wedding = {
   musicFileUrl: '/audio/placeholder-instrumental.wav',
   images: {
     // Replace with the couple photo once available.
-    coupleHero: '/images/couple-hero-placeholder.png',
+    coupleHero: '/images/photos/joey-ana-05.jpg',
     // Replace with a Batroun or venue photo once available.
-    venue: '/images/venue-placeholder.png',
+    venue: '/images/photos/joey-ana-04.jpg',
     // Replace with an exported 1200x630 social sharing image.
-    socialPreview: '/images/social-preview.png',
+    socialPreview: '/images/photos/joey-ana-01.jpg',
+    // Replace or reorder these photos to control the swipe story backgrounds.
+    story: [
+      '/images/photos/joey-ana-05.jpg',
+      '/images/photos/joey-ana-04.jpg',
+      '/images/photos/joey-ana-02.jpg',
+      '/images/photos/joey-ana-06.jpg',
+      '/images/photos/joey-ana-07.jpg',
+      '/images/photos/joey-ana-08.jpg',
+      '/images/photos/joey-ana-03.jpg',
+      '/images/photos/joey-ana-01.jpg',
+    ],
   },
   travel: {
     title: 'Travel & Accommodation',

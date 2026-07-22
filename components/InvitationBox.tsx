@@ -38,7 +38,7 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
     () => [
       {
         id: 'names',
-        image: wedding.images.coupleHero,
+        image: wedding.images.story[0],
         eyebrow: 'Are getting married',
         content: (
           <div className="text-center">
@@ -55,7 +55,7 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
       },
       {
         id: 'date',
-        image: wedding.images.coupleHero,
+        image: wedding.images.story[1],
         eyebrow: wedding.tagline,
         content: (
           <div className="text-center">
@@ -70,7 +70,7 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
       },
       {
         id: 'ceremony',
-        image: wedding.images.venue,
+        image: wedding.images.story[2],
         eyebrow: 'The Ceremony',
         content: (
           <EventCard
@@ -85,7 +85,7 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
       },
       {
         id: 'reception',
-        image: wedding.images.venue,
+        image: wedding.images.story[3],
         eyebrow: 'The Reception',
         content: (
           <EventCard
@@ -100,7 +100,7 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
       },
       {
         id: 'dress',
-        image: wedding.images.coupleHero,
+        image: wedding.images.story[4],
         eyebrow: 'Evening Details',
         content: (
           <div className="text-center">
@@ -120,19 +120,19 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
       },
       {
         id: 'countdown',
-        image: wedding.images.venue,
+        image: wedding.images.story[5],
         eyebrow: 'Countdown',
         content: <Countdown compact />,
       },
       {
         id: 'rsvp',
-        image: wedding.images.coupleHero,
+        image: wedding.images.story[6],
         eyebrow: 'Kindly Reply',
         content: <RSVP openExternalRsvp={openExternalRsvp} compact />,
       },
       {
         id: 'travel',
-        image: wedding.images.venue,
+        image: wedding.images.story[7],
         eyebrow: 'Travel',
         content: (
           <div className="text-center">
@@ -153,7 +153,7 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
       },
       {
         id: 'faq',
-        image: wedding.images.coupleHero,
+        image: wedding.images.story[0],
         eyebrow: 'Questions',
         content: (
           <div>

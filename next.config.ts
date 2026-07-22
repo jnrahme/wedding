@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 const rootDirectory = dirname(fileURLToPath(import.meta.url));
 
 const nextConfig: NextConfig = {
+  devIndicators: false,
   output: 'export',
   outputFileTracingRoot: rootDirectory,
   images: {

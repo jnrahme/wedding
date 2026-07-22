@@ -69,6 +69,10 @@ export function MusicPlayer({ enabled, compact = false }: MusicPlayerProps) {
 
   const label = isPlaying ? 'Pause music' : 'Play music';
 
+  if (!enabled) {
+    return null;
+  }
+
   return (
     <div
       className={`fixed z-40 rounded-full border border-gold/35 bg-ink/70 shadow-glow backdrop-blur-md ${

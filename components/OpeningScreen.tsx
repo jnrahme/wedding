@@ -35,7 +35,7 @@ export function OpeningScreen({ onOpen }: OpeningScreenProps) {
         transition={{ duration: 54, repeat: Infinity, ease: 'linear' }}
       />
       <motion.div
-        className="relative mx-auto flex max-w-sm flex-col items-center"
+        className="relative z-10 mx-auto flex max-w-sm flex-col items-center"
         initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
