@@ -358,7 +358,7 @@ export function InvitationBox({ openExternalRsvp }: InvitationBoxProps) {
         goToSlide(activeSlideRef.current);
       }}
     >
-      <div className="relative h-[calc(100dvh-1.5rem)] w-full max-w-[430px] overflow-hidden rounded-[4px] border-[6px] border-ivory bg-ink shadow-2xl sm:h-[min(92vh,860px)]">
+      <div className="relative h-[calc(100dvh-1.5rem)] w-full max-w-[430px] overflow-hidden rounded-[4px] border-[8px] border-ivory bg-ink shadow-2xl sm:h-[min(92vh,860px)]">
         <div
           ref={scrollerRef}
           onScroll={handleScroll}

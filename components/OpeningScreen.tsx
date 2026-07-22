@@ -18,7 +18,7 @@ export function OpeningScreen({ onOpen }: OpeningScreenProps) {
       transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
       aria-label="Opening invitation"
     >
-      <div className="relative h-[calc(100dvh-1.5rem)] w-full max-w-[430px] overflow-hidden rounded-[4px] border-[6px] border-ivory bg-ink shadow-2xl sm:h-[min(92vh,860px)]">
+      <div className="relative h-[calc(100dvh-1.5rem)] w-full max-w-[430px] overflow-hidden rounded-[4px] border-[8px] border-ivory bg-ink shadow-2xl sm:h-[min(92vh,860px)]">
         <PhotoBackdrop src={wedding.images.coupleHero} priority />
         <motion.div
           className="relative z-10 mx-auto flex h-full max-w-sm flex-col items-center justify-center px-6"
